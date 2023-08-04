@@ -6,7 +6,7 @@ const OnboardingScreen = ({ navigation }) => {
         // This will run when the component mounts
         // Redirect to the login page after a short delay (e.g., 2 seconds)
         const redirectTimer = setTimeout(() => {
-            navigation.replace('Login');
+            navigation.replace('LoginScreen');
         }, 2000);
 
         // Clean up the timer when the component unmounts

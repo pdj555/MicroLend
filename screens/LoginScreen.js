@@ -9,7 +9,7 @@ import {
     Platform,
 } from 'react-native';
 
-const LoginScreen = () => {
+const LoginScreen = ({ navigation }) => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
 
@@ -18,6 +18,11 @@ const LoginScreen = () => {
         // For simplicity, we'll just log the username and password
         console.log('Username:', username);
         console.log('Password:', password);
+    };
+
+    const handleSignUp = () => {
+        // Navigate to the registration screen when "Sign up here" is clicked
+        navigation.navigate('RegisterScreen');
     };
 
     return (
@@ -47,10 +52,17 @@ const LoginScreen = () => {
                 <TouchableOpacity style={styles.loginButton} onPress={handleLogin}>
                     <Text style={styles.buttonText}>Login</Text>
                 </TouchableOpacity>
+
+                <TouchableOpacity onPress={handleSignUp}>
+                    <Text>New to MicroLend? Sign up here!</Text>
+                </TouchableOpacity>
             </View>
         </KeyboardAvoidingView>
     );
 };
+
+// ... (styles and export statement are the same as in the previous example)
+
 
 const styles = StyleSheet.create({
     container: {

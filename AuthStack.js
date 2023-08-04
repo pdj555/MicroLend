@@ -15,7 +15,8 @@ const AuthStack = () => {
                 component={OnboardingScreen}
                 options={{ headerShown: false }}
             />
-            <Stack.Screen name="Login" component={LoginScreen} />
+            <Stack.Screen name="LoginScreen" component={LoginScreen} options={{ headerShown: false }} />
+            <Stack.Screen name="RegisterScreen" component={RegisterScreen} options={{ headerShown: false }} />
             {/* Add more screens here as needed */}
         </Stack.Navigator>
     );

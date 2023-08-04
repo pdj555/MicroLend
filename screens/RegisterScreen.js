@@ -1,194 +1,102 @@
-// import React, {useState} from 'react';
-// import {
-//     SafeAreaView,
-//     ScrollView,
-//     View,
-//     Text,
-//     TextInput,
-//     TouchableOpacity,
-// } from 'react-native';
-//
-// import DatePicker from 'react-native-date-picker';
-//
-// import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
-// import Ionicons from 'react-native-vector-icons/Ionicons';
-//
-// import GoogleSVG from '../assets/google.svg';
-// import TwitterSVG from '../assets/twitter.svg';
-//
-// const RegisterScreen = ({navigation}) => {
-//     const [date, setDate] = useState(new Date());
-//     const [open, setOpen] = useState(false);
-//     const [dobLabel, setDobLabel] = useState('Date of Birth');
-//
-//     return (
-//         <SafeAreaView style={{flex: 1, justifyContent: 'center'}}>
-//             <ScrollView
-//                 showsVerticalScrollIndicator={false}
-//                 style={{paddingHorizontal: 25}}>
-//                 <View style={{alignItems: 'center'}}>
-//
-//                 <Text
-//                     style={{
-//                         fontFamily: 'Roboto-Medium',
-//                         fontSize: 28,
-//                         fontWeight: '500',
-//                         color: '#333',
-//                         marginBottom: 30,
-//                     }}>
-//                     Register
-//                 </Text>
-//
-//                 <View
-//                     style={{
-//                         flexDirection: 'row',
-//                         justifyContent: 'space-between',
-//                         marginBottom: 30,
-//                     }}>
-//                     <TouchableOpacity
-//                         onPress={() => {}}
-//                         style={{
-//                             borderColor: '#ddd',
-//                             borderWidth: 2,
-//                             borderRadius: 10,
-//                             paddingHorizontal: 30,
-//                             paddingVertical: 10,
-//                         }}>
-//                         <GoogleSVG height={24} width={24} />
-//                     </TouchableOpacity>
-//                     <TouchableOpacity
-//                         onPress={() => {}}
-//                         style={{
-//                             borderColor: '#ddd',
-//                             borderWidth: 2,
-//                             borderRadius: 10,
-//                             paddingHorizontal: 30,
-//                             paddingVertical: 10,
-//                         }}>
-//                         <FacebookSVG height={24} width={24} />
-//                     </TouchableOpacity>
-//                     <TouchableOpacity
-//                         onPress={() => {}}
-//                         style={{
-//                             borderColor: '#ddd',
-//                             borderWidth: 2,
-//                             borderRadius: 10,
-//                             paddingHorizontal: 30,
-//                             paddingVertical: 10,
-//                         }}>
-//                         <TwitterSVG height={24} width={24} />
-//                     </TouchableOpacity>
-//                 </View>
-//
-//                 <Text style={{textAlign: 'center', color: '#666', marginBottom: 30}}>
-//                     Or, register with email ...
-//                 </Text>
-//
-//                 <InputField
-//                     label={'Full Name'}
-//                     icon={
-//                         <Ionicons
-//                             name="person-outline"
-//                             size={20}
-//                             color="#666"
-//                             style={{marginRight: 5}}
-//                         />
-//                     }
-//                 />
-//
-//                 <TextInput
-//                     label={'Email ID'}
-//                     icon={
-//                         <MaterialIcons
-//                             name="alternate-email"
-//                             size={20}
-//                             color="#666"
-//                             style={{marginRight: 5}}
-//                         />
-//                     }
-//                     keyboardType="email-address"
-//                 />
-//
-//                 <TextInput
-//                     label={'Password'}
-//                     icon={
-//                         <Ionicons
-//                             name="ios-lock-closed-outline"
-//                             size={20}
-//                             color="#666"
-//                             style={{marginRight: 5}}
-//                         />
-//                     }
-//                     inputType="password"
-//                 />
-//
-//                 <TextInput
-//                     label={'Confirm Password'}
-//                     icon={
-//                         <Ionicons
-//                             name="ios-lock-closed-outline"
-//                             size={20}
-//                             color="#666"
-//                             style={{marginRight: 5}}
-//                         />
-//                     }
-//                     inputType="password"
-//                 />
-//
-//                 <View
-//                     style={{
-//                         flexDirection: 'row',
-//                         borderBottomColor: '#ccc',
-//                         borderBottomWidth: 1,
-//                         paddingBottom: 8,
-//                         marginBottom: 30,
-//                     }}>
-//                     <Ionicons
-//                         name="calendar-outline"
-//                         size={20}
-//                         color="#666"
-//                         style={{marginRight: 5}}
-//                     />
-//                     <TouchableOpacity onPress={() => setOpen(true)}>
-//                         <Text style={{color: '#666', marginLeft: 5, marginTop: 5}}>
-//                             {dobLabel}
-//                         </Text>
-//                     </TouchableOpacity>
-//                 </View>
-//
-//                 <DatePicker
-//                     modal
-//                     open={open}
-//                     date={date}
-//                     mode={'date'}
-//                     maximumDate={new Date('2005-01-01')}
-//                     minimumDate={new Date('1980-01-01')}
-//                     onConfirm={date => {
-//                         setOpen(false);
-//                         setDate(date);
-//                         setDobLabel(date.toDateString());
-//                     }}
-//                     onCancel={() => {
-//                         setOpen(false);
-//                     }}
-//                 />
-//
-//                 <CustomButton label={'Register'} onPress={() => {}} />
-//
-//                 <View
-//                     style={{
-//                         flexDirection: 'row',
-//                         justifyContent: 'center',
-//                         marginBottom: 30,
-//                     }}>
-//                     <Text>Already registered?</Text>
-//                     <TouchableOpacity onPress={() => navigation.goBack()}>
-//                         <Text style={{color: '#AD40AF', fontWeight: '700'}}> Login</Text>
-//                     </TouchableOpacity>
-//                 </View>
-//             </ScrollView>
-//         </SafeAreaView>
-//     );
-// };
-//
-// export default RegisterScreen;
+import React, { useState } from 'react';
+import {
+    View,
+    Text,
+    TextInput,
+    TouchableOpacity,
+    StyleSheet,
+    KeyboardAvoidingView,
+    Platform,
+} from 'react-native';
+
+const RegisterScreen = () => {
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+    const [email, setEmail] = useState('');
+
+    const handleSignUp = () => {
+        // Replace this with your actual registration logic
+        // For simplicity, we'll just log the entered data
+        console.log('Username:', username);
+        console.log('Email:', email);
+        console.log('Password:', password);
+    };
+
+    return (
+        <KeyboardAvoidingView
+            style={styles.container}
+            behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+        >
+            <View style={styles.formContainer}>
+                <Text style={styles.header}>Sign Up</Text>
+
+                <TextInput
+                    style={styles.input}
+                    placeholder="Username"
+                    value={username}
+                    onChangeText={setUsername}
+                    autoCapitalize="none"
+                />
+
+                <TextInput
+                    style={styles.input}
+                    placeholder="Email"
+                    value={email}
+                    onChangeText={setEmail}
+                    autoCapitalize="none"
+                />
+
+                <TextInput
+                    style={styles.input}
+                    placeholder="Password"
+                    secureTextEntry
+                    value={password}
+                    onChangeText={setPassword}
+                />
+
+                <TouchableOpacity style={styles.signUpButton} onPress={handleSignUp}>
+                    <Text style={styles.buttonText}>Sign Up</Text>
+                </TouchableOpacity>
+            </View>
+        </KeyboardAvoidingView>
+    );
+};
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#fff',
+    },
+    formContainer: {
+        width: '80%',
+    },
+    header: {
+        fontSize: 24,
+        fontWeight: 'bold',
+        marginBottom: 20,
+        textAlign: 'center',
+    },
+    input: {
+        height: 50,
+        borderWidth: 1,
+        borderColor: '#ccc',
+        borderRadius: 5,
+        marginBottom: 15,
+        paddingHorizontal: 10,
+    },
+    loginButton: {
+        backgroundColor: '#007BFF',
+        paddingVertical: 15,
+        borderRadius: 5,
+    },
+    buttonText: {
+        color: '#fff',
+        fontSize: 18,
+        fontWeight: 'bold',
+        textAlign: 'center',
+    },
+});
+
+export default RegisterScreen;
