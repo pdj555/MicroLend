@@ -31,20 +31,21 @@ const LoginScreen = ({ navigation }) => {
             style={styles.container}
             behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
         >
+            <View>
+                <Image
+                    source={require('../assets/squig.png')}
+                    style={{ width: 800, height: 230, alignSelf: 'center', position:'absolute', top: -170}}
+                />
+            </View>
 
             <View style={styles.formContainer}>
-                <View>
-                    <Image
-                        source={require('../assets/person.png')}
-                        style={{ width: 200, height: 200, alignSelf: 'center', position:'absolute', top:-200}}
-                    />
-                </View>
+
 
                 <Text style={styles.header}>Welcome Back!</Text>
 
                 <TextInput
                     style={styles.input}
-                    placeholder="Username"
+                    placeholder="Email"
                     value={username}
                     onChangeText={setUsername}
                     autoCapitalize="none"
@@ -59,10 +60,14 @@ const LoginScreen = ({ navigation }) => {
                 />
 
                 <TouchableOpacity style={styles.loginButton} onPress={handleLogin}>
-                    <Text style={styles.buttonText}>Login</Text>
+                    <Text style={styles.buttonText}>Sign In</Text>
                 </TouchableOpacity>
 
-                    <View style={{flexDirection: 'row', alignItems: 'center', paddingTop: 30, paddingBottom: 20}}>
+                <TouchableOpacity style={styles.signUpButton} onPress={handleSignUp}>
+                    <Text style={styles.buttonText2}>Sign Up</Text>
+                </TouchableOpacity>
+
+                    <View style={{flexDirection: 'row', alignItems: 'center', paddingTop: 40, paddingBottom: 10, top: 60}}>
                         <View style={{flex: 1, height: 1, backgroundColor: 'black'}} />
                         <View>
                             <Text style={{width: 50, textAlign: 'center', fontWeight:'bold'}}>or</Text>
@@ -70,7 +75,7 @@ const LoginScreen = ({ navigation }) => {
                         <View style={{flex: 1, height: 1, backgroundColor: 'black'}} />
                     </View>
 
-                <View style={{ flexDirection: 'row', justifyContent: 'center', marginTop: 10 }}>
+                <View style={{ flexDirection: 'row', justifyContent: 'center', marginTop: 10, top: 70 }}>
                     <SocialIcon
                         button
                         iconColor="black"
@@ -82,7 +87,7 @@ const LoginScreen = ({ navigation }) => {
                             paddingHorizontal: 15,
                             backgroundColor: "white",
                             borderColor: 'black',
-                            borderWidth: StyleSheet.hairlineWidth,
+                            borderWidth: 1,
                         }}
                         type="apple"
                     />
@@ -98,7 +103,7 @@ const LoginScreen = ({ navigation }) => {
                             paddingHorizontal: 15,
                             backgroundColor: "white",
                             borderColor: 'black',
-                            borderWidth: StyleSheet.hairlineWidth,
+                            borderWidth: 1,
                         }}
                         type="google"
                     />
@@ -114,15 +119,10 @@ const LoginScreen = ({ navigation }) => {
                             paddingHorizontal: 20,
                             backgroundColor: "white",
                             borderColor: 'black',
-                            borderWidth: StyleSheet.hairlineWidth,
+                            borderWidth: 1,
                         }}
                         type="facebook"
                     />
-                </View>
-                <View style={styles.signup}>
-                        <TouchableOpacity onPress={handleSignUp}>
-                            <Text style={{fontWeight:'bold', fontSize: 15}}>Sign up here!</Text>
-                        </TouchableOpacity>
                 </View>
 
             </View>
@@ -149,6 +149,7 @@ const styles = StyleSheet.create({
         marginBottom: 20,
         marginTop: 30,
         textAlign: 'left',
+        top: 50,
     },
     input: {
         height: 50,
@@ -156,16 +157,37 @@ const styles = StyleSheet.create({
         borderBottomColor: 'black',
         marginBottom: 15,
         paddingHorizontal: 10,
+        top: 50,
     },
     loginButton: {
         backgroundColor: 'black',
         paddingVertical: 15,
-        width: 100,
+        width: 350,
         borderRadius: 100,
         justifyContent: 'center',
         alignItems: 'center',
         alignSelf: 'center',
         marginTop: 10,
+        top: 60,
+    },
+    signUpButton: {
+        top: 60,
+        backgroundColor: 'white',
+        paddingVertical: 15,
+        width: 350,
+        borderRadius: 100,
+        borderColor: 'black',
+        borderWidth: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        alignSelf: 'center',
+        marginTop: 10,
+    },
+    buttonText2: {
+        color: 'black',
+        fontSize: 18,
+        fontWeight: 'bold',
+        textAlign: 'center',
     },
     buttonText: {
         color: 'white',

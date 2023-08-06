@@ -22,7 +22,7 @@ const OnboardingScreen = ({ navigation }) => {
                 backgroundColor: '#fff',
             }}
         >
-            <View>
+            <View style={{ justifyContent: 'center', marginRight: 30}}>
                 <Image source={require('../assets/MicroLend.png')} />
             </View>
         </SafeAreaView>
