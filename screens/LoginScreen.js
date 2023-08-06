@@ -6,8 +6,9 @@ import {
     TouchableOpacity,
     StyleSheet,
     KeyboardAvoidingView,
-    Platform,
+    Platform, Image,
 } from 'react-native';
+import { SocialIcon } from 'react-native-elements';
 
 const LoginScreen = ({ navigation }) => {
     const [username, setUsername] = useState('');
@@ -30,8 +31,16 @@ const LoginScreen = ({ navigation }) => {
             style={styles.container}
             behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
         >
+
             <View style={styles.formContainer}>
-                <Text style={styles.header}>Login</Text>
+                <View>
+                    <Image
+                        source={require('../assets/person.png')}
+                        style={{ width: 200, height: 200, alignSelf: 'center', position:'absolute', top:-200}}
+                    />
+                </View>
+
+                <Text style={styles.header}>Welcome Back!</Text>
 
                 <TextInput
                     style={styles.input}
@@ -53,9 +62,69 @@ const LoginScreen = ({ navigation }) => {
                     <Text style={styles.buttonText}>Login</Text>
                 </TouchableOpacity>
 
-                <TouchableOpacity onPress={handleSignUp}>
-                    <Text>New to MicroLend? Sign up here!</Text>
-                </TouchableOpacity>
+                    <View style={{flexDirection: 'row', alignItems: 'center', paddingTop: 30, paddingBottom: 20}}>
+                        <View style={{flex: 1, height: 1, backgroundColor: 'black'}} />
+                        <View>
+                            <Text style={{width: 50, textAlign: 'center', fontWeight:'bold'}}>or</Text>
+                        </View>
+                        <View style={{flex: 1, height: 1, backgroundColor: 'black'}} />
+                    </View>
+
+                <View style={{ flexDirection: 'row', justifyContent: 'center', marginTop: 10 }}>
+                    <SocialIcon
+                        button
+                        iconColor="black"
+                        iconSize={25}
+                        iconType="font-awesome"
+                        onLongPress={() => console.log("onLongPress()")}
+                        onPress={() => console.log("onPress()")}
+                        style={{
+                            paddingHorizontal: 15,
+                            backgroundColor: "white",
+                            borderColor: 'black',
+                            borderWidth: StyleSheet.hairlineWidth,
+                        }}
+                        type="apple"
+                    />
+
+                    <SocialIcon
+                        button
+                        iconColor="black"
+                        iconSize={25}
+                        iconType="font-awesome"
+                        onLongPress={() => console.log("onLongPress()")}
+                        onPress={() => console.log("onPress()")}
+                        style={{
+                            paddingHorizontal: 15,
+                            backgroundColor: "white",
+                            borderColor: 'black',
+                            borderWidth: StyleSheet.hairlineWidth,
+                        }}
+                        type="google"
+                    />
+
+                    <SocialIcon
+                        button
+                        iconColor="black"
+                        iconSize={25}
+                        iconType="font-awesome"
+                        onLongPress={() => console.log("onLongPress()")}
+                        onPress={() => console.log("onPress()")}
+                        style={{
+                            paddingHorizontal: 20,
+                            backgroundColor: "white",
+                            borderColor: 'black',
+                            borderWidth: StyleSheet.hairlineWidth,
+                        }}
+                        type="facebook"
+                    />
+                </View>
+                <View style={styles.signup}>
+                        <TouchableOpacity onPress={handleSignUp}>
+                            <Text style={{fontWeight:'bold', fontSize: 15}}>Sign up here!</Text>
+                        </TouchableOpacity>
+                </View>
+
             </View>
         </KeyboardAvoidingView>
     );
@@ -75,29 +144,41 @@ const styles = StyleSheet.create({
         width: '80%',
     },
     header: {
-        fontSize: 24,
+        fontSize: 50,
         fontWeight: 'bold',
         marginBottom: 20,
-        textAlign: 'center',
+        marginTop: 30,
+        textAlign: 'left',
     },
     input: {
         height: 50,
-        borderWidth: 1,
-        borderColor: '#ccc',
-        borderRadius: 5,
+        borderBottomWidth: StyleSheet.hairlineWidth, // Add a thin black bottom border
+        borderBottomColor: 'black',
         marginBottom: 15,
         paddingHorizontal: 10,
     },
     loginButton: {
-        backgroundColor: '#007BFF',
+        backgroundColor: 'black',
         paddingVertical: 15,
-        borderRadius: 5,
+        width: 100,
+        borderRadius: 100,
+        justifyContent: 'center',
+        alignItems: 'center',
+        alignSelf: 'center',
+        marginTop: 10,
     },
     buttonText: {
-        color: '#fff',
+        color: 'white',
         fontSize: 18,
         fontWeight: 'bold',
         textAlign: 'center',
+    },
+    signup: {
+        position: 'absolute',
+        top: 650,
+        justifyContent: 'flex-end', // Center the text horizontally
+        alignItems: 'center', // Center the text vertically
+        width: '100%', // Set the width to fill the entire screen
     },
 });
 
